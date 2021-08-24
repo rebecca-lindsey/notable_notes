@@ -12,7 +12,7 @@ defmodule NotableNotes.Note do
   end
 
   @doc false
-  def changeset(note, attrs) do
+  def changeset(note, attrs \\ %{}) do
     note
     |> cast(attrs, [:title, :body, :color, :user_id])
     |> validate_required([:title, :body, :color, :user_id])
