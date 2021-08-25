@@ -6,7 +6,7 @@ defmodule NotableNotes.Repo.Migrations.CreateNotes do
       add :title, :string
       add :body, :text
       add :color, :string
-      add :user_id, :integer
+      add :user_id, references(:users), null: false
 
       timestamps()
     end

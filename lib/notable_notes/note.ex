@@ -6,7 +6,7 @@ defmodule NotableNotes.Note do
     field :body, :string
     field :color, :string
     field :title, :string
-    field :user_id, :integer
+    belongs_to :user, NotableNotes.User
 
     timestamps()
   end

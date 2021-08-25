@@ -6,6 +6,7 @@ defmodule NotableNotes.User do
     field :email, :string
     field :password, :binary
     field :username, :string
+    has_many :notes, NotableNotes.Note
 
     timestamps()
   end

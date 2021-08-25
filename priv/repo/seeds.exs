@@ -9,3 +9,11 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+alias NotableNotes.Repo
+alias NotableNotes.User
+
+Repo.insert!(%User{
+  email: "test@test.com",
+  password: <<0, 255, 42>>,
+  username: "Test User"
+})
