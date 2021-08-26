@@ -6,7 +6,8 @@ defmodule NotableNotesWeb.NoteController do
   alias NotableNotes.Repo
 
   def index(conn, _params) do
-    render(conn, "index.html")
+    notes = Repo.all(Note)
+    render(conn, "index.html", notes: notes)
   end
 
   def new(conn, _params) do
