@@ -34,3 +34,30 @@
   display: block;
   margin: -1rem 0 2rem;
 }
+.note {
+  border: 1px solid black;
+  list-style: none;
+  padding: 10px;
+  width: 200px;
+  margin: 5px;
+}
+.note-board {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.red {
+  background-color: rgb(241, 151, 151);
+}
+.green {
+  background-color: rgb(173, 255, 173)
+}
+.purple {
+  background-color: rgb(255, 185, 255)
+}
+.blue {
+  background-color: rgb(177, 177, 255)
+}
+.Yellow {
+  background-color: rgb(255, 255, 174)
+}
