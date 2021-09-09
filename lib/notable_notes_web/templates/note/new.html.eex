@@ -1,18 +1,19 @@
-<h1>Create a new note</h1>
+<div class="content">
+  <h2>Create a new note</h2>
 
-
-<%= form_for @changeset, Routes.note_path(@conn, :create), fn f -> %>
-  <label>
-    Title: <%= text_input f, :title %>
-  </label>
-
-  <label>
-    Body: <%= text_input f, :body %>
-  </label>
+  <%= form_for @changeset, Routes.note_path(@conn, :create), fn f -> %>
+    <label>
+      Title: <%= text_input f, :title %>
+    </label>
 
     <label>
-    Color: <%= text_input f, :color %>
-  </label>
+      <span id="body-label">Body:</span> <%= textarea f, :body %>
+    </label>
 
-  <%= submit "Submit" %>
-<% end %>
+    <label>
+      Color: <%= select f, :color, ["red", "orange", "yellow", "green", "blue", "purple"] %>
+    </label>
+
+    <%= submit "Submit" %>
+  <% end %>
+</div>

@@ -1,10 +1,12 @@
-Notes Index Page
+<div class="content">
+    <h2>Note Board</h2>
 
-<div class="note-board">
-    <%= for note <- @notes do %>
-        <li class="note <%= note.color%>">
-            <h2><%= note.title %></h2>
-            <p><%= note.body %></p>
-        </li>
-    <% end %>
+    <div class="note-board">
+        <%= for note <- @notes do %>
+            <li class="note color-<%= note.color%>">
+                <h3><%= note.title %></h3>
+                <p><%= note.body %></p>
+            </li>
+        <% end %>
+    </div>
 </div>
