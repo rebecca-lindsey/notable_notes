@@ -19,7 +19,11 @@ defmodule NotableNotesWeb.Router do
     get "/", PageController, :index
 
     resources "/notes", NoteController
-    resources "/users", UserController
+    get "/signup", UserController, :new
+    post "/signup", UserController, :create
+    get "/login", SessionController, :new
+    post "/login", SessionController, :create
+    delete "/logout", SessionController, :delete
   end
 
   # Other scopes may use custom stacks.
