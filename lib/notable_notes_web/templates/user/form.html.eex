@@ -1,0 +1,15 @@
+<%= form_for @changeset, @action, fn f -> %>
+    <label>
+        Email: <%= text_input f, :email %>
+    </label>
+
+    <label>
+        Username: <%= text_input f, :username %>
+    </label>
+
+    <label>
+        Password:<%= password_input f, :password %>
+    </label>
+
+    <%= submit "Submit" %>
+<% end %>

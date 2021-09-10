@@ -1,1 +1,5 @@
-<h2>Create new account</h2>
+<div class="content">
+  <h2>Create an account</h2>
+
+  <%= render "form.html", Map.put(assigns, :action, Routes.user_path(@conn, :create)) %>
+</div>
