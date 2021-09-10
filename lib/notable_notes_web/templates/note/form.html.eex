@@ -1,0 +1,15 @@
+<%= form_for @changeset, @action, fn f -> %>
+    <label>
+        Title: <%= text_input f, :title %>
+    </label>
+
+    <label>
+        <span id="body-label">Body:</span> <%= textarea f, :body %>
+    </label>
+
+    <label>
+        Color: <%= select f, :color, ["red", "orange", "yellow", "green", "blue", "purple"] %>
+    </label>
+
+    <%= submit "Submit" %>
+<% end %>
