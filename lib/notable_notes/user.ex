@@ -1,6 +1,7 @@
 defmodule NotableNotes.User do
   use Ecto.Schema
   import Ecto.Changeset
+  alias NotableNotes.User
 
   schema "users" do
     field :email, :string
@@ -12,7 +13,7 @@ defmodule NotableNotes.User do
   end
 
   @doc false
-  def changeset(user, attrs) do
+  def changeset(%User{} = user, attrs) do
     user
     |> cast(attrs, [:email, :password, :username])
     |> validate_required([:email, :password, :username])
