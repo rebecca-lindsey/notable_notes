@@ -21,6 +21,10 @@ defmodule NotableNotesWeb.UserController do
         redirect(conn, to: Routes.note_path(conn, :index))
 
       {:error, changeset} ->
+        conn =
+          conn
+          |> put_flash(:error, "Please fill out all fields")
+
         render(conn, "new.html", changeset: changeset)
     end
   end
