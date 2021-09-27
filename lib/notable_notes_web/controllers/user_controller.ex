@@ -9,10 +9,10 @@ defmodule NotableNotesWeb.UserController do
     render(conn, "new.html", changeset: changeset)
   end
 
-  def create(conn, %{"user" => user}) do
-    changeset = User.changeset(%User{}, user)
+  def create(conn, %{"user" => %{"password" => password} = user}) do
+    user = Map.merge(user, %{"password" => Bcrypt.hash_pwd_salt(password)})
 
-    case Repo.insert(changeset) do
+    case Repo.insert(User.register_changeset(user)) do
       {:ok, _changeset} ->
         conn =
           conn

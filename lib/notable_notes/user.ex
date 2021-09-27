@@ -18,4 +18,15 @@ defmodule NotableNotes.User do
     |> cast(attrs, [:email, :password, :username])
     |> validate_required([:email, :password, :username])
   end
+
+  def register_changeset(attrs \\ %{}) do
+    %User{}
+    |> cast(attrs, [:email, :username, :password])
+    |> validate_required([:email, :username, :password])
+    |> unique_constraint(:email)
+    |> unique_constraint(:username)
+    |> validate_format(:email, ~r/@/)
+    |> validate_format(:username, ~r/^[a-zA-Z0-9]*$/)
+    |> validate_length(:password, min: 4)
+  end
 end
