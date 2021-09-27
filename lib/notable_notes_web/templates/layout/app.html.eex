@@ -17,6 +17,7 @@
         <%= link("Sign Up", to: "/signup") %>
         <%= link("Login", to: "/login") %>
       </nav>
+      <p>Logged in as: <%= Guardian.Plug.current_resource(@conn).username %></p>
     </header>
     <main role="main">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
