@@ -26,6 +26,14 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+config :notable_notes, NotableNotes.Auth.Guardian,
+  issuer: "Notable Notes",
+  secret_key: System.get_env("GUARDIAN_KEY")
+
+config :notable_notes, NotableNotes.Auth.Pipeline,
+  module: NotableNotes.Guardian,
+  error_handler: NotableNotes.Auth.ErrorHandler
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
