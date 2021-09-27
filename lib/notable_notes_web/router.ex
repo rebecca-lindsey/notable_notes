@@ -9,12 +9,16 @@ defmodule NotableNotesWeb.Router do
     plug :put_secure_browser_headers
   end
 
+  pipeline :browser_session do
+    plug NotableNotes.Auth.Pipeline
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end
 
   scope "/", NotableNotesWeb do
-    pipe_through :browser
+    pipe_through [:browser, :browser_session]
 
     get "/", PageController, :index
 
